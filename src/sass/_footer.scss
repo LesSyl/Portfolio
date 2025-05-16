@@ -1,0 +1,17 @@
+@use './colors' as *;
+.footer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 3em;
+	padding: 4em 2em;
+	font-size: 1rem;
+	font-family: 'Montserrat', sans-serif;
+	color: $bg-color;
+	background-color: $shadow-color;
+	&-bottom {
+		margin-top: 1em;
+	}
+}
+

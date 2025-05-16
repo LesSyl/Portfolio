@@ -1,0 +1,224 @@
+@use 'colors' as *;
+
+.navigation {
+	position: fixed;
+	display: flex;
+	top: 0;
+	width: 100%;
+	height: 3em;
+	padding: 0.5em;
+	scroll-margin-top: 2em;
+	background-color: transparent;
+	z-index: 10;
+
+	.portfolio {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-left: 0.5em;
+		padding: 0.5em;
+		font-size: 1.2rem;
+
+		&__my {
+			&-title {
+				font-size: 1.5rem;
+				font-family: 'Poiret One', sans-serif;
+				color: $bg-color;
+				&--active-scroll {
+					color: $text-color;
+				}
+			}
+		}
+	}
+}
+.nav {
+	&-mobile {
+		position: absolute;
+		top: 3em;
+		right: 0;
+		width: 80%;
+		padding: 3.75em 1em;
+		background-color: $nav-color;
+		transform: translateX(100%);
+		transition: 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
+		z-index: 20;
+
+		&--active {
+			transform: translate(0);
+		}
+
+		.nav__item {
+			display: flex;
+			justify-content: start;
+			margin: 2em;
+			padding: 0.5em 0.1em;
+			font-size: 1rem;
+			color: $bg-color;
+			cursor: pointer;
+		}
+	}
+	&-desktop {
+		display: none;
+	}
+}
+
+@keyframes navItemsAnimation {
+	from {
+		transform: translateX(200%);
+	}
+	to {
+		transform: translateX(0);
+	}
+}
+
+.nav-items-animation {
+	animation: navItemsAnimation 1s both;
+}
+.burger-btn {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	right: 1em;
+	padding: 1em 0.5em;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+	z-index: 20;
+
+	&:focus-visible {
+		outline: none;
+		border: 1px solid $text-color;
+		border-radius: 8px;
+	}
+
+	&__box {
+		position: relative;
+		display: flex;
+		align-items: center;
+		width: 25px;
+		border: none;
+	}
+	&__bars {
+		position: absolute;
+		width: 100%;
+		height: 0.1em;
+		color: $bg-color;
+		background-color: $text-color;
+		content: '';
+		&::before,
+		&::after {
+			display: block;
+			position: absolute;
+			width: 100%;
+			height: 1.5px;
+			background-color: $text-color;
+			content: '';
+		}
+		&::before {
+			top: -9px;
+			transition: top 0.1s 0.25s ease-in, transform 0.22s ease-in-out;
+		}
+		&::after {
+			bottom: -9px;
+			transition: bottom 0.1s 0.25s ease-in, transform 0.22s ease-in-out;
+		}
+	}
+	&--active-btn {
+		.burger-btn__bars {
+			transform: rotate(225deg);
+			&::before {
+				top: 0;
+				transition: top 0.1s easy-out;
+			}
+			&::after {
+				bottom: 0;
+				transform: rotate(-90deg);
+				transition: bottom 0.1s easy-out, transform 0.22s 0.12s ease-in-out;
+			}
+		}
+	}
+}
+
+.navigation--active-scroll {
+	background-color: $bg-color;
+	box-shadow: 0.1px 0.1px 10px $shadow-color;
+}
+
+.active-scroll {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	background-color: $experience-color;
+}
+
+//////////////////media///////////////////////
+@media (width >= 48em) {
+	.navigation {
+		height: 5em;
+		padding: 0 2em;
+		.portfolio {
+			&__my {
+				&-title {
+					font-size: 1.5rem;
+				}
+			}
+		}
+	}
+	.nav {
+		display: flex;
+		justify-content: end;
+		align-items: center;
+		width: 100%;
+
+		&-mobile {
+			display: none;
+		}
+		&-desktop {
+			display: flex;
+		}
+		.nav__item {
+			position: relative;
+			padding: 0.6em;
+			font-size: 0.9rem;
+			color: $bg-color;
+			cursor: pointer;
+
+			&::after,
+			&::before {
+				transition: 0.4s;
+			}
+			&-scroll {
+				&--active {
+					color: black;
+				}
+			}
+		}
+
+		.one,
+		.two,
+		.three,
+		.four,
+		.five {
+			margin: 0 0.5em;
+		}
+	}
+	.burger-btn {
+		display: none;
+	}
+}
+@media (width >= 75em) {
+	.navigation {
+		.portfolio {
+			&__my {
+				&-title {
+					margin-left: 4em;
+					font-size: 2rem;
+				}
+			}
+		}
+	}
+	.nav {
+		margin-right: 10em;
+	}
+}

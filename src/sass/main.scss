@@ -1,0 +1,727 @@
+@use './reset';
+@use './footer' as *;
+@use './colors' as *;
+@use './nav' as *;
+@use './animations' as *;
+
+.wrapper {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1200px;
+}
+.section__header {
+	position: relative;
+	height: 35em;
+	background-image: url('/src/img/img1.JPG');
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	z-index: 0;
+
+	&-bg {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: $shadow-color;
+		z-index: -10;
+	}
+	&-text {
+		position: absolute;
+		bottom: 4em;
+		right: 0.5em;
+		padding: 1em 2em;
+		color: $bg-color;
+		z-index: 5;
+		&-name {
+			font-size: 1.3rem;
+			font-family: 'Poiret One', sans-serif;
+			letter-spacing: 0.1em;
+			animation: text 1s cubic-bezier(0.25, 0.1, 0.25, 1) both;
+		}
+		&-profession {
+			font-size: 0.8rem;
+			letter-spacing: 0.1em;
+			animation: text 1s cubic-bezier(0.25, 0.1, 0.25, 1) both;
+		}
+	}
+	&-link {
+		position: absolute;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		height: 100%;
+		cursor: pointer;
+
+		&-linkedin,
+		&-github {
+			padding: 0.5em 1em;
+			color: $light-pink;
+			transition: scale 0.5s;
+			&:hover {
+				scale: 1.5;
+			}
+		}
+	}
+}
+
+.section__title {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 2.5em 0 1.5em 0;
+	font-family: 'Poiret One', sans-serif;
+	font-size: 1.5rem;
+}
+
+////////////////section aboutme/////////////////////
+
+.section-aboutme {
+	&__main {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin: 0 0 2em 0;
+		background-color: $bg-color;
+		&-img {
+			width: 40%;
+			padding: 0.3em;
+			border: 1px solid $experience-color;
+			background-size: cover;
+			border-radius: 0.2em;
+		}
+		&-text {
+			margin: 3em 4em;
+			font-size: 0.7rem;
+			&-description {
+				letter-spacing: 0.1em;
+				&--one,
+				&--two,
+				&--three {
+					margin: 1em 0;
+					span {
+						font-weight: bold;
+					}
+				}
+			}
+		}
+	}
+}
+
+.scroll-animation {
+  opacity: 0;
+  transform: translateY(-100px);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.scroll-animation--active {
+  animation: down 1s cubic-bezier(0.25, 0.1, 0.25, 1) both;
+}
+
+.download-cv {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	&-link {
+		position: relative;
+		font-size: 1rem;
+		margin: 1.5em 0 1em 0;
+		padding: 0.6em 1.2em;
+		border: 1px solid $dark-pink;
+		border-radius: 0.2em;
+		background-color: $dark-pink;
+		color: $bg-color;
+		transition: 0.6s;
+		&::before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			content: '';
+			width: 100%;
+			height: 100%;
+			border: 1px solid $text-color;
+			animation: pulse 2s infinite;
+		}
+		&:hover {
+			color: $nav-color;
+			background-color: $bg-color;
+			border: 1px solid $experience-color;
+		}
+	}
+	&--contact {
+		margin: 2em 0;
+	}
+}
+
+///////////////////////hero-img/////////////////////////
+
+.hero {
+	position: relative;
+	width: 100%;
+	height: 20em;
+	background-image: url('/src/img/hero-img\ small.jpg');
+	background-size: cover;
+	background-position: center;
+	&__shadow {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: $shadow-color;
+	}
+	&__text {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		text-align: center;
+		width: 80%;
+		font-size: 0.7rem;
+		font-family: 'Poiret One', sans-serif;
+		font-weight: 600;
+		color: $bg-color;
+		letter-spacing: 0.1em;
+		line-height: 2em;
+		text-transform: uppercase;
+	}
+}
+
+//////////////////SECTION EXPERIENCE//////////////////////
+
+.section__experience {
+	.cards {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	.card {
+		position: relative;
+		width: 15em;
+		height: 24em;
+		margin-bottom: 2em;
+		perspective: 800px;
+
+		&__top {
+			&-icon {
+				font-size: 1rem;
+			}
+			&-title {
+				margin-top: 0.3em;
+				font-size: 1.2rem;
+			}
+			&-description {
+				margin-top: 3em;
+				font-size: 0.8rem;
+			}
+		}
+		&__bottom {
+			&-title {
+				margin-bottom: 1em;
+				font-size: 0.9rem;
+			}
+			&-li {
+				font-size: 0.7rem;
+				margin-bottom: 0.7em;
+			}
+		}
+
+		&__top-skill,
+		&__bottom-skill {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border-radius: 1em;
+			padding: 1em;
+			background-color: $bg-color;
+			border: 0.5px solid $experience-color;
+			transition: opacity 0.8s ease, transform 0.8s ease;
+		}
+
+		&__top-skill {
+			opacity: 1;
+			z-index: 2;
+			transform: rotateY(0);
+		}
+
+		&__bottom-skill {
+			opacity: 0;
+			z-index: 1;
+			transform: rotateY(-180deg);
+		}
+		&.is-flipped {
+			.card__top-skill {
+				opacity: 0;
+				transform: rotateY(180deg);
+				z-index: 1;
+			}
+
+			.card__bottom-skill {
+				opacity: 1;
+				transform: rotateY(0);
+				z-index: 2;
+			}
+		}
+	}
+}
+.card {
+	&__button {
+		position: absolute;
+		left: 50%;
+		left: 50%;
+		bottom: 1.5em;
+
+		padding: 1em;
+		background-color: $bg-color;
+		border: none;
+		transform: translateX(-50%);
+		cursor: pointer;
+	}
+}
+.button {
+	&-arrow {
+		color: $dark-pink;
+	}
+}
+///////////////////// MY PROJECTS ////////////////////
+
+.section__myProjects {
+	margin: 1em;
+}
+
+.accordion {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	user-select: none;
+	&__item {
+		position: relative;
+		background-size: cover;
+		background-position: center;
+		height: 7em;
+		margin-bottom: 0.1em;
+		border-radius: 0.3em;
+		overflow: hidden;
+		cursor: pointer;
+		transition: height 0.8s;
+		outline: none;
+		z-index: 0;
+		&--one {
+			background-image: url('/src/img/tropicalParadise.png');
+		}
+		&--two {
+			background-image: url('/src/img/diamont.png');
+		}
+		&--three {
+			background-image: url('/src/img/Forest.png');
+		}
+		&--four {
+			background-image: url('/src/img/drinkSearch.png');
+		}
+		&-bg {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background-color: $shadow-color;
+			z-index: -10;
+			transition: 0.8s;
+		}
+		&-content {
+			quotes: 100%;
+			height: 4em;
+			padding: 1em;
+			opacity: 1;
+			transition: background-color 0.8s;
+			&-h3 {
+				font-size: 0.8rem;
+				color: $bg-color;
+				z-index: 10;
+			}
+			&-eye {
+				position: absolute;
+				top: 0.3em;
+				right: 1em;
+				padding: 1em;
+				color: $bg-color;
+				opacity: 0;
+				transition: opacity 0.8s;
+				transition: scale 0.8s;
+				cursor: pointer;
+				&:hover {
+					scale: 1.2;
+				}
+			}
+			&-arrow {
+				position: absolute;
+				right: 2em;
+				top: 50%;
+				transform: translateY(-50%);
+				padding: 1em;
+				font-size: 0.6rem;
+				color: $bg-color;
+				transform: translateY(-50%);
+				transition: transform 0.4s ease;
+				transition: background-color 1s;
+				opacity: 1;
+				cursor: pointer;
+			}
+		}
+		&:focus,
+		&:active {
+			outline: none;
+		}
+	}
+}
+
+.open {
+	height: 25em;
+	.accordion__item-bg {
+		background-color: transparent;
+	}
+	.accordion__item-content-arrow {
+		transform: translateY(-50%) rotate(180deg);
+		background-color: $shadow-color;
+		border-radius: 50%;
+	}
+	.accordion__item-content-eye {
+		opacity: 1;
+	}
+	.accordion__item-content {
+		background-color: $shadow-color;
+	}
+}
+
+//////////////////////CONTACT////////////////////////////
+
+.section__contact {
+	position: relative;
+	margin: 1.5em;
+	&-card {
+		&-one {
+			line-height: 2;
+			margin-bottom: 2em;
+			&-name {
+				font-size: 1rem;
+			}
+			&-num {
+				font-size: 0.7rem;
+				i {
+					margin-right: 0.5em;
+				}
+			}
+			&-email {
+				font-size: 0.8rem;
+				margin-bottom: 2em;
+				i {
+					margin-right: 0.5em;
+				}
+			}
+		}
+		&-two {
+			border-top: 0.2px solid $experience-color;
+			border-bottom: 0.2px solid $experience-color;
+			&-cv {
+				margin: 3em 0;
+			}
+		}
+	}
+	&-link {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		&-linkedin,
+		&-github {
+			margin-top: 2.5em;
+			padding: 1em;
+			color: $text-color;
+			cursor: pointer;
+			transition: transform 0.3s;
+			&:hover {
+				transform: scale(1.5);
+			}
+		}
+	}
+
+	.arrow-up {
+		position: absolute;
+		width: 2rem;
+		height: 2rem;
+		right: 0;
+		bottom: 0;
+		padding: 0.5em;
+		background-color: transparent;
+		border: 1px solid $text-color;
+		border-radius: 50%;
+		cursor: pointe;
+	}
+}
+
+///////////////////////////MEDIA/////////////////////////
+@media (width >= 26em) {
+	.section-aboutme {
+		&__main {
+			&-img {
+				padding: 0.5em;
+			}
+		}
+	}
+	.section__contact-card-one {
+		padding-left: 6em;
+	}
+	.section__contact {
+		.arrow-up {
+			right: 2em;
+			bottom: 0.5em;
+		}
+	}
+}
+@media (width >= 46em) {
+	.section__header {
+		scroll-margin-top: 10px;
+		height: 40em;
+		&-text {
+			top: 25em;
+			right: 2em;
+			&-name {
+				font-size: 2.5rem;
+			}
+			&-profession {
+				font-size: 1rem;
+			}
+		}
+		&-link {
+			font-size: 2rem;
+		}
+	}
+	.section__title {
+		font-size: 2rem;
+	}
+
+	.section-aboutme {
+		&__main {
+			display: flex;
+			flex-direction: row;
+			margin: 0 4em 4em 4em;
+			&-img {
+				width: 30%;
+			}
+		}
+	}
+	.hero {
+		&__text {
+			font-size: 1rem;
+		}
+	}
+	.section__experience {
+		.cards {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: center;
+			margin: 3em;
+		}
+		.card {
+			margin: 2em;
+			&__top {
+				padding: 1.5em;
+			}
+		}
+	}
+	.section__myProjects {
+		margin: 0 5em;
+	}
+	.accordion__item {
+		height: 15em;
+		&-content {
+			&-h3 {
+				margin-left: 4em;
+			}
+			&-eye {
+				top: -0.5em;
+				right: 2em;
+				font-size: 2rem;
+			}
+		}
+	}
+	.open {
+		height: 30em;
+	}
+	.section__contact {
+		&-card {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			&-one {
+				margin: 0;
+				padding: 2.5em;
+				border-bottom: none;
+				border-right: 1px solid $experience-color;
+				&-email {
+					margin-bottom: 0;
+					font-size: 0.8rem;
+				}
+			}
+			&-two {
+				margin: 2em;
+				border: none;
+
+				&-cv {
+					text-align: center;
+				}
+			}
+		}
+		&-link {
+			font-size: 1.5rem;
+			&-linkedin,
+			&-github {
+				margin: 2em 0;
+			}
+		}
+	}
+	.section__contact {
+		.arrow-up {
+			right: 4em;
+			bottom: 1em;
+		}
+	}
+	.section__contact {
+		.arrow-up {
+			width: 3rem;
+			height: 3rem;
+			padding: 1em;
+		}
+	}
+}
+@media (width >= 62em) {
+	.section__header {
+		height: 50em;
+		&-text {
+			top: 30em;
+			right: 2em;
+			&-name {
+				font-size: 3rem;
+			}
+			&-profession {
+				font-size: 1.5rem;
+			}
+		}
+	}
+	.section__title {
+		font-size: 2.5rem;
+	}
+
+	.section-aboutme {
+		&__main {
+			margin: 0 6em 6em 6em;
+			&-img {
+				height: 20em;
+			}
+			&-text {
+				font-size: 0.9em;
+				.download-cv {
+					&-link {
+						font-size: 1.2rem;
+					}
+				}
+			}
+		}
+	}
+	.hero {
+		height: 30em;
+
+		&__text {
+			font-size: 1.3rem;
+		}
+	}
+	.section__experience {
+		.card {
+			width: 17em;
+			height: 26em;
+			&__top {
+				&-icon {
+					font-size: 1.5rem;
+				}
+				&-title {
+					font-size: 1rem;
+				}
+				&-description {
+					font-size: 0.9rem;
+				}
+			}
+			&__bottom {
+				&-li {
+					font-size: 0.8rem;
+				}
+			}
+		}
+	}
+	.section__contact {
+		&-card {
+			&-one {
+				&-name {
+					font-size: 1.3rem;
+				}
+				&-num {
+					font-size: 1.2rem;
+				}
+				&-email {
+					font-size: 1.2rem;
+				}
+			}
+			&-two {
+				margin: 3em 2em;
+				&-cv {
+					text-align: center;
+				}
+			}
+		}
+	}
+	.section__contact {
+		.arrow-up {
+			right: 10em;
+		}
+	}
+}
+@media (width >= 75em) {
+	.section__header {
+		height: 50em;
+		&-text {
+			top: 30em;
+			right: 10em;
+			&-name {
+				font-size: 3rem;
+			}
+			&-profession {
+				font-size: 1.5rem;
+			}
+		}
+		&-link {
+			padding: 0 1em;
+		}
+	}
+	.section__myProjects {
+		margin: 0 15em;
+	}
+	.open {
+		height: 35em;
+	}
+	.section__contact {
+		.arrow-up {
+			right: 20em;
+		}
+	}
+}
+@media (width >= 87.5em) {
+	.section__header {
+		height: 55em;
+		&-text {
+			top: 35em;
+			right: 20em;
+		}
+		&-link {
+			padding: 0 3em;
+		}
+	}
+}
