@@ -109,13 +109,13 @@
 }
 
 .scroll-animation {
-  opacity: 0;
-  transform: translateY(-100px);
-  transition: opacity 0.5s, transform 0.5s;
+	opacity: 0;
+	transform: translateY(-100px);
+	transition: opacity 0.5s, transform 0.5s;
 }
 
 .scroll-animation--active {
-  animation: down 1s cubic-bezier(0.25, 0.1, 0.25, 1) both;
+	animation: down 1s cubic-bezier(0.25, 0.1, 0.25, 1) both;
 }
 
 .download-cv {
@@ -478,10 +478,11 @@
 }
 @media (width >= 46em) {
 	.section__header {
+		min-height: 100vh; 
 		scroll-margin-top: 10px;
-		height: 40em;
+		// height: 50em;
 		&-text {
-			top: 25em;
+			top: 35em;
 			right: 2em;
 			&-name {
 				font-size: 2.5rem;
