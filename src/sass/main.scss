@@ -12,7 +12,7 @@
 .section__header {
 	position: relative;
 	height: 35em;
-	background-image: url('./img/img1.JPG');
+	background-image: url('../img/img1.JPG');
 	background-size: cover;
 	background-position: center;
 	background-attachment: fixed;
@@ -311,16 +311,16 @@
 		outline: none;
 		z-index: 0;
 		&--one {
-			background-image: url('/img/tropicalParadise.png');
+			background-image: url('../img/tropicalParadise.png');
 		}
 		&--two {
-			background-image: url('./img/diamont.png');
+			background-image: url('../img/diamont.png');
 		}
 		&--three {
-			background-image: url('../src/img/Forest.png');
+			background-image: url('../img/Forest.png');
 		}
 		&--four {
-			background-image: url('../../src/img/drinkSearch.png');
+			background-image: url('../img/drinkSearch.png');
 		}
 		&-bg {
 			position: absolute;
