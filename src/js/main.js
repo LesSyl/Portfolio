@@ -6,9 +6,8 @@ const nav = document.querySelector('.navigation')
 const portfolioTitle = document.querySelector('.portfolio__my-title')
 const allNavItems = document.querySelectorAll('.nav__item')
 const scroll = document.querySelectorAll('.nav__item-scroll')
-const cardButton = document.querySelector('.card__button')
+const cardButton = document.querySelectorAll('.card__button')
 const items = document.querySelectorAll('.accordion__item')
-// const section = document.querySelectorAll('section')
 const animated = document.querySelectorAll('.scroll-animation')
 
 const openMenu = () => {
@@ -58,13 +57,14 @@ const addShadow = () => {
 	}
 }
 
-const openCard = () => {
-	document.querySelectorAll('.card').forEach(el => {
-		el.addEventListener('click', () => {
-			el.classList.toggle('is-flipped')
-		})
+
+document.querySelectorAll('.card__button').forEach(button => {
+	button.addEventListener('click', e => {
+		e.stopPropagation(); // zapobiega np. kliknięciu innych elementów
+		const card = button.closest('.card')
+		card.classList.toggle('is-flipped')
 	})
-}
+})
 
 items.forEach(item => {
 	item.addEventListener('click', () => {
@@ -90,4 +90,3 @@ burgerBtn.addEventListener('click', openMenu)
 window.addEventListener('scroll', addShadow)
 window.addEventListener('scroll', handleScrollAnimation)
 window.addEventListener('load', handleScrollAnimation)
-cardButton.addEventListener('click', openCard)
