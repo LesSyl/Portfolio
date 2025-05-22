@@ -311,16 +311,16 @@
 		outline: none;
 		z-index: 0;
 		&--one {
-			background-image: url('/src/img/tropicalparadise.png');
+			background-image: url('../img/tropicalparadise.png');
 		}
 		&--two {
-			background-image: url('/src/img/diamonts.png');
+			background-image: url('../img/diamonts.png');
 		}
 		&--three {
-			background-image: url('/src/img/forest.png');
+			background-image: url('../img/forest.png');
 		}
 		&--four {
-			background-image: url('/src/img/drinksearch.png');
+			background-image: url('../img/drinksearch.png');
 		}
 		&-bg {
 			position: absolute;
