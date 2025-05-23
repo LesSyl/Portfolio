@@ -271,14 +271,14 @@
 		left: 50%;
 		left: 50%;
 		bottom: 1.5em;
-		padding: .5em;
+		padding: 0.5em;
 		background-color: transparent;
 		border: none;
 		transform: translateX(-50%);
 		cursor: pointer;
-		&:focus{
+		&:focus {
 			border: none;
-			border: .2px solid $text-color;
+			border: 0.2px solid $text-color;
 		}
 	}
 }
@@ -300,8 +300,9 @@
 	user-select: none;
 	&__item {
 		position: relative;
-		background-size: cover;
+		background-size: contain;
 		background-position: center;
+		background-repeat: no-repeat;
 		height: 7em;
 		margin-bottom: 0.1em;
 		border-radius: 0.3em;
@@ -331,8 +332,8 @@
 			transition: 0.8s;
 		}
 		&-content {
-			quotes: 100%;
-			height: 4em;
+			// quotes: 100%;
+			height: 3em;
 			padding: 1em;
 			opacity: 1;
 			transition: background-color 0.8s;
@@ -378,7 +379,7 @@
 }
 
 .open {
-	height: 25em;
+	height: 10em;
 	.accordion__item-bg {
 		background-color: transparent;
 	}
@@ -469,6 +470,14 @@
 			}
 		}
 	}
+	.accordion {
+		&__item {
+			background-size: cover;
+		}
+	}
+	.open {
+		height: 11em;
+	}
 	.section__contact-card-one {
 		padding-left: 6em;
 	}
@@ -483,7 +492,6 @@
 	.section__header {
 		min-height: 100vh;
 		scroll-margin-top: 10px;
-		// height: 50em;
 		&-text {
 			top: 35em;
 			right: 2em;
@@ -536,20 +544,20 @@
 		margin: 0 5em;
 	}
 	.accordion__item {
-		height: 15em;
+		height: 11em;
 		&-content {
 			&-h3 {
 				margin-left: 4em;
 			}
 			&-eye {
-				top: -0.5em;
+				top: -0.3em;
 				right: 2em;
-				font-size: 2rem;
+				font-size: 1rem;
 			}
 		}
 	}
 	.open {
-		height: 30em;
+		height: 15em;
 	}
 	.section__contact {
 		&-card {
@@ -661,6 +669,12 @@
 			}
 		}
 	}
+	.accordion__item {
+		height: 19em;
+	}
+	.open {
+		height: 21em;
+	}
 	.section__contact {
 		&-card {
 			&-one {
@@ -706,10 +720,13 @@
 		}
 	}
 	.section__myProjects {
-		margin: 0 15em;
+		margin: 0 10em;
+	}
+	.accordion__item {
+		height: 23em;
 	}
 	.open {
-		height: 35em;
+		height: 28em;
 	}
 	.section__contact {
 		.arrow-up {
@@ -727,5 +744,8 @@
 		&-link {
 			padding: 0 3em;
 		}
+	}
+	.section__myProjects {
+		margin: 0 25em;
 	}
 }
