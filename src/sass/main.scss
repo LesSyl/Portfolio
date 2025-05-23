@@ -544,7 +544,7 @@
 		margin: 0 5em;
 	}
 	.accordion__item {
-		height: 11em;
+		// height: 11em;
 		&-content {
 			&-h3 {
 				margin-left: 4em;
@@ -669,9 +669,6 @@
 			}
 		}
 	}
-	.accordion__item {
-		height: 19em;
-	}
 	.open {
 		height: 21em;
 	}
@@ -723,10 +720,10 @@
 		margin: 0 10em;
 	}
 	.accordion__item {
-		height: 23em;
+		height: 10em;
 	}
 	.open {
-		height: 28em;
+		height: 20em;
 	}
 	.section__contact {
 		.arrow-up {
@@ -746,6 +743,6 @@
 		}
 	}
 	.section__myProjects {
-		margin: 0 25em;
+		margin: 0 20em;
 	}
 }
