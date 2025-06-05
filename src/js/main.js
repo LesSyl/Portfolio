@@ -10,6 +10,8 @@ const cardButton = document.querySelectorAll('.card__button')
 const items = document.querySelectorAll('.accordion__item')
 const animated = document.querySelectorAll('.scroll-animation')
 
+
+//////////////////BURGER BTN///////////////
 const openMenu = () => {
 	burgerBtn.classList.toggle('burger-btn--active-btn')
 	navMobile.classList.toggle('nav-mobile--active')
@@ -23,7 +25,7 @@ const openMenu = () => {
 
 	handleNavItemsAnimation()
 }
-
+/////////////////////LINK ANIMATION MOBILE////////////////
 const handleNavItemsAnimation = () => {
 	let delayTime = 0
 
@@ -34,11 +36,8 @@ const handleNavItemsAnimation = () => {
 	})
 }
 
-const handleCurrentYear = () => {
-	const year = new Date().getFullYear()
-	footerYear.innerText = year
-}
 
+///////////////ADDING A SHADOW TO THE NAVIGATION//////////////////
 const addShadow = () => {
 	if (window.scrollY >= 50) {
 		portfolioTitle.classList.add('portfolio__my-title--active-scroll')
@@ -58,6 +57,8 @@ const addShadow = () => {
 }
 
 
+////////////EXPERIENCE : TURNING OVER CARDS////////////////
+
 document.querySelectorAll('.card__button').forEach(button => {
 	button.addEventListener('click', e => {
 		e.stopPropagation(); // zapobiega np. kliknięciu innych elementów
@@ -65,6 +66,8 @@ document.querySelectorAll('.card__button').forEach(button => {
 		card.classList.toggle('is-flipped')
 	})
 })
+
+/////////////MY PROJECTS : ACCORDION///////////
 
 items.forEach(item => {
 	item.addEventListener('click', () => {
@@ -76,6 +79,8 @@ items.forEach(item => {
 	})
 })
 
+//////////////MY PROJECTS : ACCORDION///////////////
+
 const handleScrollAnimation = () => {
 	animated.forEach(el => {
 		const rect = el.getBoundingClientRect()
@@ -83,6 +88,12 @@ const handleScrollAnimation = () => {
 			el.classList.add('scroll-animation--active')
 		}
 	})
+}
+
+////////////// FOOTER/////////////////////////////
+const handleCurrentYear = () => {
+	const year = new Date().getFullYear()
+	footerYear.innerText = year
 }
 
 handleCurrentYear()
