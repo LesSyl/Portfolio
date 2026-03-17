@@ -81,7 +81,7 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		margin: 0 0 2em 0;
+		// margin: 0 0 2em 0;
 		background-color: $bg-color;
 		&-img {
 			width: 40%;
@@ -151,6 +151,135 @@
 	}
 	&--contact {
 		margin: 2em 0;
+	}
+}
+
+///////////////////// MY PROJECTS ////////////////////
+.section__myProjects {
+	margin: 1em 1em 5em;
+}
+
+.accordion {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	user-select: none;
+	&__item {
+		position: relative;
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		height: 10em;
+		margin-bottom: 0.1em;
+		border-radius: 0.3em;
+		overflow: hidden;
+		cursor: pointer;
+		transition: height 0.8s;
+		outline: none;
+		z-index: 0;
+		&--one {
+			background-image: url('../img/RBTranskop.png');
+		}
+		&--two {
+			background-image: url('../img/ApartmanLastovicka.png');
+		}
+		&--three {
+			background-image: url('../img/tropicalp.png');
+		}
+		&--four {
+			background-image: url('../img/diamonts.png');
+		}
+		&--five {
+			background-image: url('../img/forest.png');
+		}
+		&--six {
+			background-image: url('../img/drinkse.png');
+		}
+		&-bg {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background-color: $shadow-color;
+			z-index: -10;
+			transition: 0.8s;
+		}
+		&-content {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+			&-box {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: start;
+				height: 2.5em;
+				padding: 0.5em;
+				opacity: 1;
+				transition: background-color 0.8s;
+				&-h3,
+				&-p {
+					color: $bg-color;
+					z-index: 10;
+				}
+				&-h3 {
+					font-size: 0.7rem;
+				}
+				&-p {
+					font-size: 0.4rem;
+				}
+			}
+			&-arrow {
+				position: absolute;
+				right: 2em;
+				top: 50%;
+				transform: translateY(-50%);
+				padding: 1em;
+				font-size: 0.6rem;
+				color: $bg-color;
+				transform: translateY(-50%);
+				transition: transform 0.4s ease;
+				transition: background-color 1s;
+				opacity: 1;
+				cursor: pointer;
+			}
+			&-openPage {
+					display: none;
+					padding: 1em;
+					font-size: 0.5rem;
+					color: $bg-color;
+					transition: opacity 0.8s;
+					transition: scale 0.8s;
+					cursor: pointer;
+					&:hover {
+						scale: 1.2;
+					}
+				}
+				
+		}
+		&:focus,
+		&:active {
+			outline: none;
+		}
+	}
+}
+
+.open {
+	height: 11em;
+	overflow-y: auto;
+	.accordion__item-bg {
+		background-color: transparent;
+	}
+	.accordion__item-content-arrow {
+		transform: translateY(-50%) rotate(180deg);
+		background-color: $shadow-color;
+		border-radius: 50%;
+	}
+	.accordion__item-content-openPage {
+		display: flex;
+	}
+	.accordion__item-content {
+		background-color: $shadow-color;
 	}
 }
 
@@ -288,113 +417,6 @@
 		color: $dark-pink;
 	}
 }
-///////////////////// MY PROJECTS ////////////////////
-
-.section__myProjects {
-	margin: 1em;
-}
-
-.accordion {
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-	user-select: none;
-	&__item {
-		position: relative;
-		background-size: contain;
-		background-position: center;
-		background-repeat: no-repeat;
-		height: 7em;
-		margin-bottom: 0.1em;
-		border-radius: 0.3em;
-		overflow: hidden;
-		cursor: pointer;
-		transition: height 0.8s;
-		outline: none;
-		z-index: 0;
-		&--one {
-			background-image: url('../img/tropicalp.png');
-		}
-		&--two {
-			background-image: url('../img/diamonts.png');
-		}
-		&--three {
-			background-image: url('../img/forest.png');
-		}
-		&--four {
-			background-image: url('../img/drinkse.png');
-		}
-		&-bg {
-			position: absolute;
-			width: 100%;
-			height: 100%;
-			background-color: $shadow-color;
-			z-index: -10;
-			transition: 0.8s;
-		}
-		&-content {
-			height: 3em;
-			padding: 1em;
-			opacity: 1;
-			transition: background-color 0.8s;
-			&-h3 {
-				font-size: 0.8rem;
-				color: $bg-color;
-				z-index: 10;
-			}
-			&-eye {
-				position: absolute;
-				top: 0.3em;
-				right: 1em;
-				padding: 1em;
-				color: $bg-color;
-				display: none;
-				transition: opacity 0.8s;
-				transition: scale 0.8s;
-				cursor: pointer;
-				&:hover {
-					scale: 1.2;
-				}
-			}
-			&-arrow {
-				position: absolute;
-				right: 2em;
-				top: 50%;
-				transform: translateY(-50%);
-				padding: 1em;
-				font-size: 0.6rem;
-				color: $bg-color;
-				transform: translateY(-50%);
-				transition: transform 0.4s ease;
-				transition: background-color 1s;
-				opacity: 1;
-				cursor: pointer;
-			}
-		}
-		&:focus,
-		&:active {
-			outline: none;
-		}
-	}
-}
-
-.open {
-	height: 10em;
-	.accordion__item-bg {
-		background-color: transparent;
-	}
-	.accordion__item-content-arrow {
-		transform: translateY(-50%) rotate(180deg);
-		background-color: $shadow-color;
-		border-radius: 50%;
-	}
-	.accordion__item-content-eye {
-		display: flex;
-	}
-	.accordion__item-content {
-		background-color: $shadow-color;
-	}
-}
 
 //////////////////////CONTACT////////////////////////////
 
@@ -470,13 +492,18 @@
 			}
 		}
 	}
-	.accordion {
-		&__item {
-			background-size: cover;
-		}
-	}
 	.open {
-		height: 11em;
+		height: 17em;
+	}
+
+	.section__contact-card-one {
+		padding-left: 6em;
+	}
+	.section__contact {
+		.arrow-up {
+			right: 2em;
+			bottom: 0.5em;
+		}
 	}
 	.section__contact-card-one {
 		padding-left: 6em;
@@ -541,23 +568,29 @@
 		}
 	}
 	.section__myProjects {
-		margin: 0 5em;
+		margin: 0 4em 5em;
 	}
 	.accordion__item {
-		// height: 11em;
+		height: 15em;
 		&-content {
-			&-h3 {
-				margin-left: 4em;
+
+			&-box{
+				height: 3em;
+				padding: 1em;
+				&-h3{
+					font-size: .8rem;
+				}
+				&-p{
+					font-size: .6rem;
+				}
 			}
-			&-eye {
-				top: -0.3em;
-				right: 2em;
-				font-size: 1rem;
+			&-openPage {
+				font-size: .7rem;
 			}
 		}
 	}
 	.open {
-		height: 15em;
+		height: 25em;
 	}
 	.section__contact {
 		&-card {
@@ -591,18 +624,12 @@
 				margin: 2em 0;
 			}
 		}
-	}
-	.section__contact {
-		.arrow-up {
-			right: 4em;
-			bottom: 1em;
-		}
-	}
-	.section__contact {
 		.arrow-up {
 			width: 3rem;
 			height: 3rem;
 			padding: 1em;
+			right: 4em;
+			bottom: 1em;
 		}
 	}
 }
@@ -669,9 +696,7 @@
 			}
 		}
 	}
-	.open {
-		height: 21em;
-	}
+
 	.section__contact {
 		&-card {
 			&-one {
@@ -693,11 +718,6 @@
 			}
 		}
 	}
-	.section__contact {
-		.arrow-up {
-			right: 10em;
-		}
-	}
 }
 @media (width >= 75em) {
 	.section__header {
@@ -717,19 +737,25 @@
 		}
 	}
 	.section__myProjects {
-		margin: 0 10em;
-	}
-	.accordion__item {
-		height: 10em;
-	}
-	.open {
-		height: 20em;
-	}
-	.section__contact {
-		.arrow-up {
-			right: 20em;
+		margin: 0 6em 5em;
+		.accordion__item {
+			height: 18em;
+			background-size: 80%;
+			background-size: cover;
+		}
+		.open {
+			height: 35em;
+			background-size: 100%;
 		}
 	}
+	// .open {
+	// 	height: 20em;
+	// }
+	// .section__contact {
+	// 	.arrow-up {
+	// 		right: 10em;
+	// 	}
+	// }
 }
 @media (width >= 87.5em) {
 	.section__header {
@@ -742,7 +768,7 @@
 			padding: 0 3em;
 		}
 	}
-	.section__myProjects {
-		margin: 0 20em;
-	}
+	// 	.section__myProjects {
+	// 		margin: 0 15em;
+	// 	}
 }
